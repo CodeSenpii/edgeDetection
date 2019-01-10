@@ -48,4 +48,88 @@ plt.imshow(gray, cmap='gray')
  ```
  ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/ed1Gray.png)
  
- 
+ ## Convolutional Kernels / Filters
+
+** Kernel can be used to transform images **
+1. blur images
+2. edge detection
+3. Sharpen images
+
+etc etc
+
+There are many types of kernels; but the most prominent are listed below
+
+
+### Sobel x kernel Edge detection : bias towards vertical lines more that horizontal lines
+
+    - [[-1, 0, 1],
+       [-2, 0, 2],
+       [-1, 0, 1]]
+       
+### Sobel y kernel edge detection: bias towards horizonatl lines more that vertical lines
+    - [[-1,  -2, -1],
+       [ 0,   0,  0],
+       [ 1,   2,  1]]
+       
+### Gaussian blur kernel:
+
+    - [[1, 2, 1],
+       [2, 4, 2],
+       [1, 2, 1]]
+       
+### Mean blur kernel:
+
+    - [[1,  1, 1],
+       [ 1, 1, 1],
+       [ 1, 1, 1]]
+       
+```python
+# Create a custom kernel
+
+# gaussian blur filter
+gblur = np.array( [ [ 1, 2, 1], 
+                   [ 2, 4, 2], 
+                   [ 1, 2, 1]]) / 16
+
+#alternative gaussian blur applied directly to image
+gblur_alt = cv2.GaussianBlur(gray, (3,3), 0)
+
+#mean blur
+
+mblur = np.array( [ [ 1, 1, 1], 
+                   [ 1, 1, 1], 
+                   [ 1, 1, 1]]) / 9
+
+#alternative 
+
+mblur_alt = np.ones((3,3), np.float32) / 9
+
+
+# 3x3 array for edge detection
+sobel_y = np.array([[ -1, -2, -1], 
+                   [ 0, 0, 0], 
+                   [ 1, 2, 1]])
+
+
+
+## TODO: Create and apply a Sobel x operator
+sobel_x = np.array([[ -1, 0, 1], 
+                   [ -2, 0, 2], 
+                   [ -1, 2, 1]])
+
+#filtered_image_x = cv2.filter2D(gray, -1, sobel_x)
+
+# Filter the image using filter2D, which has inputs: (grayscale image, bit-depth, kernel)  
+#filtered_image_y = cv2.filter2D(gray, -1, sobel_y)
+#filtered_image = cv2.filter2D(filtered_image_x, -1, sobel_y)
+filtered_image_blur = cv2.filter2D(gray , -1, mblur)
+
+filtered_image_x = cv2.filter2D(filtered_image_blur , -1, sobel_x)
+
+filtered_image_y = cv2.filter2D(filtered_image_blur, -1, sobel_y)
+
+
+plt.imshow(filtered_image_y, cmap='gray')
+```
+
+![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/sobel_y.png)
