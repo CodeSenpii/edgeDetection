@@ -34,3 +34,5 @@ image = mpimg.imread(pic)
 
 plt.imshow(image)
  ```
+ 
+ ![image1]()
