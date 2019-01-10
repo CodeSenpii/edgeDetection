@@ -122,7 +122,8 @@ sobel_x = np.array([[ -1, 0, 1],
 # Filter the image using filter2D, which has inputs: (grayscale image, bit-depth, kernel)  
 #filtered_image_y = cv2.filter2D(gray, -1, sobel_y)
 #filtered_image = cv2.filter2D(filtered_image_x, -1, sobel_y)
-filtered_image_blur = cv2.filter2D(gray , -1, mblur)
+
+filtered_image_blur = cv2.filter2D(gray , -1, mblur) # using Mean blur
 
 filtered_image_x = cv2.filter2D(filtered_image_blur , -1, sobel_x)
 
@@ -131,7 +132,7 @@ filtered_image_y = cv2.filter2D(filtered_image_blur, -1, sobel_y)
 
 plt.imshow(filtered_image_y, cmap='gray')
 ```
-## Sobel_y Gray Image
+## Sobel_y Gray Image with Mean Blur Kernel applied
 ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/sobel_y.png)
 
 ## A Larger Kernel (5x5)
@@ -149,7 +150,7 @@ filtered_image3 = cv2.filter2D(gray , -1, my_y)
 
 plt.imshow(filtered_image3, cmap='gray')
 ```
-
+### Notice the edges are significanlty more defined
 ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/bigSobel.png)
 
 
