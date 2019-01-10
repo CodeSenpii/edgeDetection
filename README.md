@@ -35,4 +35,4 @@ image = mpimg.imread(pic)
 plt.imshow(image)
  ```
  
- ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/ed1.jpg)
+ ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/ed1.png)
