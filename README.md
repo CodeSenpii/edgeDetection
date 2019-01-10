@@ -46,5 +46,6 @@ gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 #display image
 plt.imshow(gray, cmap='gray')
  ```
+ ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/ed1Gray.png)
  
  
