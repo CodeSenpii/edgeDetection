@@ -131,5 +131,5 @@ filtered_image_y = cv2.filter2D(filtered_image_blur, -1, sobel_y)
 
 plt.imshow(filtered_image_y, cmap='gray')
 ```
-
+## Sobel_y Gray Image
 ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/sobel_y.png)
