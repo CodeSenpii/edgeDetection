@@ -36,3 +36,15 @@ plt.imshow(image)
  ```
  
  ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/ed1.png)
+ 
+ ## Convert image to grayscale
+ 
+ ```python
+ # Convert to grayscale for filtering
+gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+
+#display image
+plt.imshow(gray, cmap='gray')
+ ```
+ 
+ 
