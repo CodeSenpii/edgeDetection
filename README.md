@@ -133,3 +133,23 @@ plt.imshow(filtered_image_y, cmap='gray')
 ```
 ## Sobel_y Gray Image
 ![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/sobel_y.png)
+
+## A Larger Kernel (5x5)
+
+Kernels sizes are of prime and odd numbers starting with 3x3, 5x5, 7x7, 9x9, 11x11; it must be a square matrix
+
+```python 
+my_y = np.array(  [[-1, -2, -1], 
+                   [ 0, 0, 0], 
+                   [ 0, 0, 0],
+                   [ 0, 0, 0],
+                   [ 1, 2, 1]])
+
+filtered_image3 = cv2.filter2D(gray , -1, my_y)
+
+plt.imshow(filtered_image3, cmap='gray')
+```
+
+![image1](https://github.com/CodeSenpii/edgeDetection/blob/master/bigSobel.png)
+
+
